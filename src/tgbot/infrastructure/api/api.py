@@ -1,3 +1,4 @@
+import os
 import telebot
 import uvicorn
 from fastapi import FastAPI
@@ -26,11 +27,14 @@ async def process_webhook(update: dict[str, object]) -> None:
 
 
 def main() -> None:
+    # Get port from environment variable (for Railway/Heroku)
+    port = int(os.environ.get("PORT", 8000))
+    
     uvicorn.run(
         "tgbot.infrastructure.api:app",
         host="0.0.0.0",  # noqa: S104
-        port=8000,
-        reload=True,
+        port=port,
+        reload=False,  # Disable reload in production
     )
 
 

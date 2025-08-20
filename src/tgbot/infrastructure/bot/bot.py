@@ -73,7 +73,6 @@ async def handle_jio_name(message: Message) -> None:
         message,
         f"✅ Supper jio '{jio_name}' created successfully!\n\n"
         f"Use /add_item to add food items to your jio.\n"
-        f"Use /share_jio to share it to groups via inline mode.\n"
         f"Use /view_jio to see the current status."
     )
 
